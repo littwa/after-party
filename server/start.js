@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 console.log(process.env.q);
 
-// server.get("/", async (req, res, next) => res.send("oki"));
-const controllers = require("./controllers.user.js");
+const usersRouter = require("./users/users.routers");
+
+const controllers = require("./users/users.controllers.js");
 
 class Server {
   constructor() {
@@ -28,11 +29,11 @@ class Server {
   initMiddleware() {
     this.server.use(express.json());
     this.server.use(morgan("combined"));
+    this.server.use(express.static("public"));
   }
 
   initRoutrs() {
-    this.server.get("/", async (req, res, next) => res.send("SuperStart!"));
-    this.server.post("/", controllers.createUserTest);
+    this.server.use("/users", usersRouter);
   }
 
   async initDatabase() {
