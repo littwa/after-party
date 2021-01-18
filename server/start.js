@@ -3,11 +3,11 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 
 require("dotenv").config();
-console.log(process.env.q);
 
 const usersRouter = require("./users/users.routers");
+const goodsRoute = require("./goods/goods.routers");
 
-const controllers = require("./users/users.controllers.js");
+// const controllers = require("./users/users.controllers.js");
 
 class Server {
   constructor() {
@@ -34,6 +34,7 @@ class Server {
 
   initRoutrs() {
     this.server.use("/users", usersRouter);
+    this.server.use("/goods", goodsRoute);
   }
 
   async initDatabase() {

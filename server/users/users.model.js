@@ -15,8 +15,10 @@ const UserSchema = new Schema({
     enum: ["Not Verified", "Verified"],
     default: "Not Verified",
   },
-  items: [{ type: ObjectId, ref: "Items" }],
-  verificationToken: { type: String, default: "", required: false },
+  favoriteGoods: [{ type: ObjectId, ref: "Goods" }],
+  cart: [{ type: ObjectId, ref: "Goods" }],
+  verificationToken: { type: String, default: "" },
+  sessionToken: { type: String, default: "" }, //, required: false
 });
 
 module.exports = model("Users", UserSchema);

@@ -1,4 +1,5 @@
-"use strict";
+// "use strict";
+
 // let f = 2 && 3;
 // console.log("f ", f);
 // let d = 2 || 3;
@@ -124,3 +125,50 @@
 
 // g.t();
 // console.log(44, g);
+
+// ===============
+// const p1 = new Promise((resolve, reject) => {
+//   resolve(2);
+// });
+
+// const p = new Promise((resolve, reject) => {
+//   resolve(1);
+// });
+// console.log(p);
+// p.then(resol => console.log(resol)).finally(() => console.log(87878));
+
+// Promise.all([p, p1]).then(resolve => console.log(resolve));
+// let f = Promise.resolve(1);
+// console.log(33, f);
+
+//============================================================
+// let arr = [1, 2, 3, 4, 5];
+// let iteratorArr = arr[Symbol.iterator]();
+// console.log(iteratorArr); // Object [Array Iterator] {}
+// console.log(iteratorArr.next()); // { value: 1, done: false }
+// console.log(iteratorArr.next()); // { value: 2, done: false }
+//===============================================================
+// function* fnGenerator() {
+//   console.log("blok-A");
+//   let a = yield 8;
+//   console.log("blok-B", a);
+//   a = yield 6;
+//   console.log("blok-C", a);
+//   yield 4;
+//   console.log("blok-D", a);
+//   yield 2;
+//   console.log("blok-E", a);
+// }
+
+// const gen = fnGenerator(7);
+// console.log(gen); // Object [Generator] {}
+// console.log(fnGenerator); // [GeneratorFunction: fnGenerator]
+// gen.next("QWE"); // blok-A // Аргумент первого next() походу невозможно отловить???
+// gen.next("ZXC"); // blok-B ZXC
+// gen.next("ASD"); // blok-C ASD
+// const b = gen.next(); // blok-D ASD
+// const c = gen.next(); // blok-E ASD
+
+// console.log(b); // { value: 2, done: false }
+// console.log(c); // { value: undefined, done: true } // если в конце функции поставить return 1 то value: 1
+//=============================================================
